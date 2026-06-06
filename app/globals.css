@@ -150,6 +150,7 @@ input:focus, select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgb
 fieldset { margin: 0; padding: 0; border: 0; }
 legend { margin-bottom: 11px; }
 .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.choice-grid.single-choice { grid-template-columns: 1fr; }
 
 .choice {
   height: 50px;

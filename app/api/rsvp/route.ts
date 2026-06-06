@@ -6,11 +6,8 @@ import { Rsvp } from "@/models/Rsvp";
 const rsvpSchema = z
   .object({
     guestName: z.string().trim().min(2).max(120),
-    attending: z.boolean(),
+    attending: z.literal(true),
     companions: z.array(z.string().trim().min(2).max(120)).max(10),
-  })
-  .refine((data) => data.attending || data.companions.length === 0, {
-    message: "Une personne absente ne peut pas ajouter d'accompagnateurs.",
   });
 
 export async function POST(request: Request) {

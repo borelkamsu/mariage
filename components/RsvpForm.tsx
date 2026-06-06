@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import { Check, ChevronDown, LoaderCircle, UsersRound } from "lucide-react";
 
-type Attendance = "yes" | "no" | "";
+type Attendance = "yes" | "";
 type Accompanied = "yes" | "no" | "";
 
 export function RsvpForm() {
@@ -56,9 +56,8 @@ export function RsvpForm() {
         <div className="success-icon"><Check size={28} /></div>
         <h2>Merci, {guestName.trim()} !</h2>
         <p>
-          {attending === "yes"
-            ? "Votre présence a bien été enregistrée. Nous avons hâte de célébrer avec vous."
-            : "Votre réponse a bien été enregistrée. Vous serez avec nous par la pensée."}
+          Votre présence a bien été enregistrée. Nous avons hâte de célébrer
+          avec vous.
         </p>
       </div>
     );
@@ -80,19 +79,11 @@ export function RsvpForm() {
 
       <fieldset>
         <legend>Confirmez-vous votre présence ?</legend>
-        <div className="choice-grid">
+        <div className="choice-grid single-choice">
           <Choice
             label="Oui, avec joie"
             selected={attending === "yes"}
             onClick={() => setAttending("yes")}
-          />
-          <Choice
-            label="Non, désolé(e)"
-            selected={attending === "no"}
-            onClick={() => {
-              setAttending("no");
-              setAccompanied("");
-            }}
           />
         </div>
       </fieldset>
